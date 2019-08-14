@@ -3,6 +3,15 @@ const app = express();
 
 app.set("view engine", "ejs");
 
+//array of things to do
+const toDoList = [
+    "wash the car",
+    "do laundry",
+    "make dinner"
+]
+
+
+
 //express routes here
 app.get("/", function (req, res) {
     res.render("index.ejs");
