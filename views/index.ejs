@@ -1,44 +1,65 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>TodoList App</title>
-	<!-- bootstrap cdn -->
+	<!--Required meta tags-->
+	<meta charset="utf-8">
+	<meta name= "viewport" content="width-device-width, initial-scale=1, shrink-to-fit=no">
+	<!--Bootstrap css-->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-	<!-- google fonts -->
-	<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
-
-	<link rel="stylesheet" type="text/css" href="css/style.css">	
-</head>
-
+	<!--font awesome-->
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<title>TodoList App</title>
+	<style type="text/css">
+		body{
+			background-color: #555;
+			color: white;
+		}
+		h1{
+			margin-top: 10rem;
+		}
+		form{
+			margin-bottom: 2rem;
+		}
+		ul{
+			list-style-type: none;
+			padding-top: 20px;
+		}
+		li{
+			padding-left: 20px
+		}
+	</style>
+</head>	
 <body>
-	<div class="hero">
-		<div class="container">
-			<h1 class="display-2 text-center">TodoList</h1>
-			<p class="lead text-center">Welcome to my todoList applications</p>
-			<div class="row">
-				<form id="form" class="col-lg-6 col-8 mx-auto">
-					<div class="input-group">
-						<input id="input" class="form-control" placeholder="Enter todo list item" value="this is a todo list item">
-						<span>
-							<button id="btn" type="button" class="btn btn-primary">Submit</button>
-						</span>
-					</div>			     
-				</form>
-			</div>			
-			<div class="row">				
-				<ul id="list" class="list col-lg-6 col-8 mx-auto">
-					<!-- <li>this is a todo item <input type="checkbox" class="checkbox"></li>
-					<li>this is a todo item <input type="checkbox" class="checkbox"></li> -->
-				</ul>
-			</div>
-			<div class="row">
-				<button id="btnClr" type="button" class="btn btn-primary mx-auto btnHide">Clear</button>
-			</div>				
+	<!--nav bar-->
+	<nav class="navbar navbar-dark bg-dark" style="background-color: #e3f2fd;">
+		<a class="navbar-brand" href="#">
+			<i class="fa fa-check-circle"></i>
+			TodoList 
+		</a>
+	</nav>
+	<!--input form-->
+	<div class="container">
+		<row>
+			<h1 class="text-center">Enter todo Item</h1>
+			<form class="col-lg-6" action="/newtodo" method="POST">
+				<div class="input-group">
+					<input type="text" class="form-control" name="item" placeholder="Enter todo list item" value="this is a new todo list item">
+					<span>
+						<button type="submit" class="btn btn-primary">
+							Submit
+						</button>
+					</span>
+				</div>
+			</form>
+		</row>
+		<!--unordered list (ul)-->
+		<div class ="row">
+			<ul class="col-6 mx-auto">
+				<% for(var i =0; i<toDoList.length; i++){ %>
+					<li> <%= toDoList[i] %></li>
+				<% } %>
+			</ul>
 		</div>
 	</div>
-
-	<script type="text/javascript" src="js/index.js"></script>
-	
 </body>
-</html>
